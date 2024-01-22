@@ -3,14 +3,14 @@ from Adafruit_IO import MQTTClient, Client, Feed
 import time
 import serial.tools.list_ports
 import random
-
+import base64
 
 ser = None
 
 
 #1.-----config login Ada
 AIO_USERNAME = "jackwrion12345"
-AIO_KEY = "aio_qOIN44kjZ1c3aPER1bN2P6E7w0lo"
+AIO_KEY = "YWlvX1VoS202M3FVa0FBTmNrT2FMZUZLWkZtR0NGOVM="
 
 
 #2.-----Connect Microbit
@@ -126,6 +126,7 @@ def readSerial():
 
 # Connect to Ada
 
+AIO_KEY = (base64.b64decode(AIO_KEY.encode("utf-8"))).decode("utf-8")
 client = MQTTClient ( AIO_USERNAME , AIO_KEY )
 client.on_connect = connected
 client.on_disconnect = disconnected
