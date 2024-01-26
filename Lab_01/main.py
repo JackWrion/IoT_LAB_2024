@@ -22,7 +22,6 @@ def connected ( client ) :
 
 def subscribe ( client , userdata , mid , granted_qos ) :
     print("Subcribe thanh cong ...", mid)
-    print(userdata)
 
 def disconnected ( client ) :
     print("Ngat ket noi ...")
@@ -77,31 +76,39 @@ def ConnectAdafruit():
 
 # Initialization
 client_1 = ConnectAdafruit()
-battery = 100
-bat_offset = 0.1
+battery = 70.0
+bat_offset = 0.2
 temp_offset = 25
 
-
-
+sensor_turn = 0
 
 while True:
-    offset = round(random.randn(),2)
-    temp =  float (temp_offset + offset)
-    offset = round(random.randn(),2)
-    humi =  float (65 - offset)
+    
+    if sensor_turn == 0:
+        offset = round(random.randn(),2)
+        temp =  float (temp_offset + offset)
+        client_1.publish("temp", temp)
+        print("Temperature: ",temp)
+        sensor_turn = 1
+    
+    elif sensor_turn == 1:
+        offset = round(random.randn(),2)
+        humi =  float (65 - offset)
+        client_1.publish("humi", humi)
+        print("Humidity: ",humi)
+        sensor_turn = 2
+    
+    elif sensor_turn == 2:
+        battery = round(battery - bat_offset,2)
+        if battery < 1:
+            bat_offset = -0.2
+        elif battery > 100:
+            battery = 100
+            bat_offset = 0.2
+        client_1.publish("battery", battery)
+        print("Battery: ",battery)
+        sensor_turn = 0
+    
+    
 
-    battery = battery - bat_offset
-    if battery < 1:
-        bat_offset = -0.1
-    elif battery > 100:
-        battery = 100
-        bat_offset = 0.1
-        
-    
-    
-    
-    client_1.publish("temp", temp)
-    client_1.publish("humi", humi)
-    client_1.publish("battery", battery)
-
-    time.sleep(10)
+    time.sleep(5)
