@@ -32,7 +32,6 @@ def disconnected ( client ) :
 
 
 def message ( client , feed_id , payload ):
-    # ser.write(  ( str(payload) ).encode() )
     
     if (feed_id == "led"):
         if payload == "1":
@@ -59,8 +58,6 @@ def message ( client , feed_id , payload ):
         
 # Connect to AdaFRUIT
 
-
-
 def ConnectAdafruit():
     global AIO_KEY
     AIO_KEY = (base64.b64decode(AIO_KEY.encode("utf-8"))).decode("utf-8")
@@ -82,8 +79,10 @@ temp_offset = 25
 
 sensor_turn = 0
 
+
+
 while True:
-    
+    # Begin MAIN_FLOW    
     if sensor_turn == 0:
         offset = round(random.randn(),2)
         temp =  float (temp_offset + offset)
@@ -110,5 +109,5 @@ while True:
         sensor_turn = 0
     
     
-
+    # End MAIN_FLOW
     time.sleep(5)
