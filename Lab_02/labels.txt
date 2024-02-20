@@ -1,4 +1,0 @@
-0 Tin
-1 Covered Face
-2 Unknown
-3 No Face

@@ -4,6 +4,7 @@ import time
 import base64
 from numpy import random
 
+from AI_driver import AI_driver
 
 #1.-----config login Ada
 AIO_USERNAME = "jackwr"
@@ -106,8 +107,18 @@ while True:
             bat_offset = 0.2
         client_1.publish("battery", battery)
         print("Battery: ",battery)
+        sensor_turn = 3
+    
+    elif sensor_turn == 3:
+        data, class_name = AI_driver.AI_Execute()
+        client_1.publish("camera", data)
+        print("Camera detect: ", class_name)
+
         sensor_turn = 0
-    
-    
+
     # End MAIN_FLOW
-    time.sleep(5)
+    time.sleep(2)
+
+
+
+AI_driver.AI_Stop()
