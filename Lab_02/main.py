@@ -81,7 +81,7 @@ def ConnectAdafruit():
 
 # Initialization
 client_1 = ConnectAdafruit()
-ConnectPort("/dev/pts/1")
+UART_ConnectPort("/dev/pts/1")
 battery = 70.0
 bat_offset = 0.2
 temp_offset = 25
@@ -92,7 +92,7 @@ sensor_turn = 0
 
 
 while True:
-    readSerial(client=client_1)
+    UART_ReadSerial(client=client_1)
 
     # Begin MAIN_FLOW    
     if sensor_turn == 0:
