@@ -10,25 +10,10 @@ from UART_driver import *
 #1.-----config login Ada
 AIO_USERNAME = "jackwr"
 AIO_KEY = "YWlvX2pwa1IyNVFXUllRZTYzRFR5T0U3RWtMY1ZDc2g="
-
-
-
-
+AIO_KEY = (base64.b64decode(AIO_KEY.encode("utf-8"))).decode("utf-8")
 #3.------Connect Adafruit
 #Function about Adafruit
-def connected ( client ) :
-    print ("Ket noi thanh cong ...")
-    client.subscribe( "air-conditioner" )
-    client.subscribe( "led" )
-    client.subscribe( "water-heater" )
-    client.subscribe( "humi" )
 
-def subscribe ( client , userdata , mid , granted_qos ) :
-    print("Subcribe thanh cong ...", mid)
-
-def disconnected ( client ) :
-    print("Ngat ket noi ...")
-    sys.exit(1)
 
 
 
@@ -66,21 +51,67 @@ def message ( client , feed_id , payload ):
         
 # Connect to AdaFRUIT
 
-def ConnectAdafruit():
-    global AIO_KEY
-    AIO_KEY = (base64.b64decode(AIO_KEY.encode("utf-8"))).decode("utf-8")
-    client = MQTTClient ( AIO_USERNAME , AIO_KEY )
-    client.on_connect = connected
-    client.on_disconnect = disconnected
-    client.on_message = message
-    client.on_subscribe = subscribe
-    client.connect()
-    client.loop_background()
-    return client
+class MQTT_Client:
+
+
+    def connected (self, client):
+        print("\033[32mMQTT: CONNECTED SUCCESSFULLY !!!")
+        print(client)
+        # self.client.subscribe( "air-conditioner" )
+        # self.subscribe( "led" )
+        # self.subscribe( "water-heater" )
+        # self.subscribe( "humi" )
+
+
+
+    def subscribe (self, client , userdata , mid , granted_qos ):
+        print("\033[32mMQTT: SUBSCRIBE SUCCESSFULLY ---> ", self.reg_topic)
+
+
+    def disconnected (self, client ) :
+        print("\033[31mMQTT: DISCONNECTED ...")
+        sys.exit(1)
+
+
+    def __init__(self, username, password):
+        self.client = MQTTClient ( username , password )
+        self.client.on_connect = self.connected
+        self.client.on_disconnect = self.disconnected
+        #self.client.on_message = self.message
+        self.client.on_subscribe = self.subscribe
+        self.client.connect()
+        self.client.loop_background()
+
+
+    def MQTT_Subscribe(self, listofTopics):
+        self.listofTopics = listofTopics
+
+        if isinstance(listofTopics, str):
+            self.reg_topic = listofTopics
+            self.client.subscribe(topic)
+        elif isinstance(listofTopics, tuple):
+            for topic in listofTopics:
+                self.reg_topic = topic
+                self.client.subscribe(topic)
+
+
+    def MQTT_RegisMessagesProcess(self, func):
+        self.client.on_message = func
+        # self.client.disconnect()
+        # self.client.connect()
+        # self.MQTT_Subscribe(self.listofTopics)
+
+
+
+
+
 
 
 # Initialization
-client_1 = ConnectAdafruit()
+
+client_1 = MQTT_Client(AIO_USERNAME, AIO_KEY)
+
+
 ConnectPort("/dev/pts/1")
 battery = 70.0
 bat_offset = 0.2
