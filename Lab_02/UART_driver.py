@@ -53,7 +53,7 @@ def UART_ConnectPort(portName = None ):
 
 
 #--- Processing Data ---#
-
+    # Please modify how your application work in this func UART_ProcessData
 
 def UART_ProcessData (data, sensor) :
     data = data.replace ("!", "")
@@ -62,9 +62,9 @@ def UART_ProcessData (data, sensor) :
     print(splitData)
 
     if splitData[1] == "temp":
-        sensor.temp = splitData[2]
+        sensor.temp = float(splitData[2])
     elif splitData[1] == "humi":
-        sensor.humi = splitData[2]
+        sensor.humi = float(splitData[2])
     else:
         print("WARNING: UNDEFINED FEED !!!")
 

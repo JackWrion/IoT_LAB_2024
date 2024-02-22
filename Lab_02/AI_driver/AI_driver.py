@@ -66,7 +66,7 @@ def AI_Execute():
 
 
 
-    cv2.waitKey(1)
+    cv2.waitKey(10)
     return data, class_name
 
 def AI_Stop():
@@ -75,7 +75,8 @@ def AI_Stop():
 
 
 
-
-
-# AI_Execute()
+# # For TESTING
+# while True:
+#     mydata, classname = AI_Execute()
+#     print (classname) 
 # AI_Stop()

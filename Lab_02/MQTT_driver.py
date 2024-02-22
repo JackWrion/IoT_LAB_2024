@@ -50,15 +50,19 @@ class MQTT_Client:
             for topic in listofTopics:
                 self.reg_topic = topic
                 self.client.subscribe(topic)
+                time.sleep(1)
 
 
     def MQTT_RegMessagesEvent(self, func):
         print_warning("MQTT: REGISTERED NEW EVENT CALLBACK !!!")
         self.client.on_message = func
     
-    def MQTT_Publish(self, topic, data):
+    def MQTT_Publish(self, topic, data, cleardata = None):
         self.client.publish(topic, data)
-        print_log("MQTT: PUBLISH TO",topic,"=",data)
+        if cleardata:
+            print_log("MQTT: PUBLISH TO",topic)
+        else:
+            print_log("MQTT: PUBLISH TO",topic,"=",data)
 
 
 
@@ -72,6 +76,9 @@ class MQTT_Sensors:
     humi_offset = 0
     temp_offset = 0
     bat_offset = 0.2
+
+    def __init__(self) -> None:
+        print_log("SENSOR: INIT SUCCESSFULLY !!!")
 
 
 
