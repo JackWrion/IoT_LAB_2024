@@ -20,7 +20,7 @@ def getPort():
     for i in range (0 , N) :
         port = ports [ i ]
         strPort = str( port )
-        if "dev/pts" in strPort :
+        if ("dev/pts" in strPort) or ("COM" in strPort)  :
             splitPort = strPort.split (" ")
             commPort = ( splitPort [0])
     return commPort

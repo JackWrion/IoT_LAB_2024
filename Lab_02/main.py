@@ -55,7 +55,7 @@ client_1.MQTT_RegMessagesEvent(EventCallBack)
 mySensor = MQTT_Sensors()
 
 # UART: connect -> loop_background
-UART_ConnectPort("/dev/pts/3")
+UART_ConnectPort(None)
 UART_loop_background(mySensor)
 
 
