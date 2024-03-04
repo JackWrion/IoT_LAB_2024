@@ -1,57 +1,45 @@
-## INTRODUCTION
-This lab implemented to integrate Google AI Teachable Machine and emulate UART serial sensors' data processing
+## BRIEF
+This lab implemented simple handshaking between Gateway and the Sensors.
+
+When Gateway sends Command, such as "Turn on LED" or "Turn off Heater", the Sensors should respond "ACK" to assure that the Sensors are still alive and working properly.
+
+If The Gateway doesn't receive any response after 5 times resent, it will return ERROR.  
 
 ## PREREQUIREMENTS and BUILD:
-Firstly, these are my hardware and software version/requirements.
 
-NOTICE: This project run on LINUX.
+This project run on WINDOW.
 
-```
-ubuntu: 23.10
-python: 3.11.6
-cudnn_version: 8    
-cuda_version: 12.2
-```
+Installed com0com
 
-Then, install this site-packages for AI application
-
-```
-sudo apt install nvidia-cuda-toolkit
-pip install tensorflow[and-cuda]
-pip install keras
-```
-
-and install this for emulating virtual serial communication via UART
-
-```
-sudo apt install socat
-sudo apt install minicom
-```
+Installed Hercules Terminal
 
 ## HOW TO USE
 
-- 1. Open your first terminal to produce 2 virtual port (already connected with each other)
-```
-socat -d -d pty , rawer , echo =0 pty , rawer , echo =0
-```
-It will generate 2 port, according to your case, please connect correctly to appearanced ports in your terminal
+- 1. Create 2 virtual Port with com0com
+In my case, there are 2 ports, namely COM5 and COM6.
 
-- 2. Open another terminal to write sensors' data
-'Cause, my case is /dev/pts/2 and dev/pts/3, so port2 will be assign to Minicom
-```
-sudo minicom -b 115200 -D /dev/pts/2
-```
-Then, you can type anything to this terminal and the data will be transmited to port3
+- 2. Assign one of two ports to Hercules
+My Hercules Terminal is opened with port COM5
 
-- 3. Open main.py, in line 58, change the name of the other port (dev/pts/3)
-And run main.py
+- 3. Customize your dashboard on Adafruit
+A button is assigned to feed "led"
 
+Another button is assigned to feed "water-heater"
 
+A slider is assigned to feed "air-conditioner"
+
+- 4. Clone this project and run main.py
+Remember change USERNAME and PASSWORD in main.py (on line 12 and 14) 
+
+- 5. Monitoring using dashboard
+Using button and slider on your dashboard to send data
+
+Don't forget using Herculer to respond "0:ack:0"
 
 ## EXAMPLE AND DEMO
 Have a look at my dashboard: https://io.adafruit.com/jackwr/dashboards/my-smart-home
 
-Please watch video demo here: https://www.youtube.com/watch?v=iVC1UfYrC3M
+Please watch video demo here: https://youtu.be/ORejBR28rXw
 
 
 
