@@ -15,26 +15,31 @@ Installed Hercules Terminal
 
 ## HOW TO USE
 
-- 1. Create 2 virtual Port with com0com
-In my case, there are 2 ports, namely COM5 and COM6.
+- 1. **Create 2 virtual Port with com0com**
 
-- 2. Assign one of two ports to Hercules
-My Hercules Terminal is opened with port COM5
+    In my case, there are 2 ports, namely COM5 and COM6.
 
-- 3. Customize your dashboard on Adafruit
-A button is assigned to feed "led"
+- 2. **Assign one of two ports to Hercules**
 
-Another button is assigned to feed "water-heater"
+    My Hercules Terminal is opened with port COM5
 
-A slider is assigned to feed "air-conditioner"
+- 3. **Customize your dashboard on Adafruit**
 
-- 4. Clone this project and run main.py
-Remember change USERNAME and PASSWORD in main.py (on line 12 and 14) 
+    A button is assigned to feed "led"
 
-- 5. Monitoring using dashboard
-Using button and slider on your dashboard to send data
+    Another button is assigned to feed "water-heater"
 
-Don't forget using Herculer to respond "0:ack:0"
+    A slider is assigned to feed "air-conditioner"
+
+- 4. **Clone this project and run main.py**
+
+    Remember to change USERNAME and PASSWORD in main.py (on line 12 and 14) 
+
+- 5. **Monitoring using dashboard**
+
+    Using the buttons and slider on your dashboard to send data
+
+    Don't forget using Herculer to respond "0:ack:0"
 
 ## EXAMPLE AND DEMO
 Have a look at my dashboard: https://io.adafruit.com/jackwr/dashboards/my-smart-home
