@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_monitor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MonitorActivity">
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/CardLED"
+        style="@style/Widget.Material3.CardView.Elevated"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        app:cardBackgroundColor="@color/card_color3"
+        app:cardElevation="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1">
+
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/SwitchLED"
+            style="@style/Widget.App.Switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:checked="false"
+            android:paddingStart="12dp"
+            android:paddingBottom="10dp"
+            android:scaleX="1.2"
+            android:scaleY="1.4"
+            app:switchPadding="10dp"
+            app:trackDecorationTint="@android:color/transparent" />
+
+
+        <RelativeLayout
+            android:layout_width="85dp"
+            android:layout_height="170dp"
+            android:layout_gravity="end">
+
+            <TextView
+                android:id="@+id/TextPowerLED"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:paddingEnd="15sp"
+                android:paddingBottom="15dp"
+                android:text="25W"
+                android:textColor="@color/default500"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageLED"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:paddingTop="10dp"
+                app:srcCompat="@drawable/baseline_lightbulb_24" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/TitleLED"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="7dp"
+            android:paddingTop="30dp"
+            android:text="LED"
+            android:textColor="#E5DFE8"
+            android:textSize="43sp"
+            android:textStyle="bold" />
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+
+
+
+
+
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/CardHeater"
+        style="@style/Widget.Material3.CardView.Elevated"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        app:cardBackgroundColor="@color/card_color3"
+        app:cardElevation="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1">
+
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/SwitchHeater"
+            style="@style/Widget.App.Switch.Heater"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:checked="false"
+            android:paddingStart="12dp"
+            android:paddingBottom="10dp"
+            android:scaleX="1.2"
+            android:scaleY="1.4"
+            app:switchPadding="10dp"
+            app:trackDecorationTint="@android:color/transparent" />
+
+
+        <RelativeLayout
+            android:layout_width="85dp"
+            android:layout_height="170dp"
+            android:layout_gravity="end">
+            <ImageView
+                android:id="@+id/imageHeater"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:paddingTop="10dp"
+                app:srcCompat="@drawable/heater_ic" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/TitleHeater"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="7dp"
+            android:paddingTop="30dp"
+            android:text="HEATER"
+            android:textColor="#E5DFE8"
+            android:textSize="43sp"
+            android:textStyle="bold" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+
+
+
+
+
+
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/AirCard"
+        style="@style/Widget.Material3.CardView.Elevated"
+        android:layout_width="370dp"
+        android:layout_height="170dp"
+        app:cardBackgroundColor="@color/card_color3"
+        app:cardElevation="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45"
+        tools:ignore="RtlSymmetry">
+
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/SliderAir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:stepSize="2"
+            android:valueFrom="16"
+            android:valueTo="30"
+            app:thumbColor="@color/bright_blue"
+            app:trackColorActive="@color/bright_blue"
+            app:labelBehavior="visible"
+            app:trackHeight="10dp"
+            app:labelStyle="@style/Widget.App.Tooltip"/>
+
+        <RelativeLayout
+            android:layout_width="85dp"
+            android:layout_height="170dp"
+            android:layout_gravity="end">
+
+            <ImageView
+                android:id="@+id/air_condition_img"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:paddingTop="10dp"
+                app:srcCompat="@drawable/air_condition_ic"
+                android:outlineSpotShadowColor="@color/heater_red"
+                android:outlineAmbientShadowColor="@color/heater_red"
+                android:elevation="100dp"
+                />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/TitleAirCon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:paddingStart="10dp"
+            android:paddingTop="30dp"
+            android:text="Air-Conditioner"
+            android:shadowColor="@color/cyan"
+            android:shadowDx="0.0"
+            android:shadowDy="0.0"
+            android:shadowRadius="0"
+            android:textColor="@color/bright_blue"
+            android:textSize="38sp"
+            android:textStyle="bold" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <!--    <com.google.android.material.materialswitch.MaterialSwitch-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:text="@string/label_2"/>-->
+<!--    <com.google.android.material.materialswitch.MaterialSwitch-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:text="@string/label_3"/>-->
+<!--    <com.google.android.material.materialswitch.MaterialSwitch-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:text="@string/label_4"/>-->
+<!--    <com.google.android.material.materialswitch.MaterialSwitch-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:enabled="false"-->
+<!--        android:text="@string/label_5"/>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

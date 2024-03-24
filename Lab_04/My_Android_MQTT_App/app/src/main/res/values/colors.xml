@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#00FF00</color>
+    <color name="blue">#0000FF</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="cyan">#00FFFF</color>
+    <color name="magenta">#FF00FF</color>
+    <color name="orange">#FFA500</color>
+    <color name="purple">#800080</color>
+    <color name="pink">#FFC0CB</color>
+    <color name="teal">#008080</color>
+    <color name="amber">#FFC107</color>
+    <color name="indigo">#3F51B5</color>
+    <color name="brown">#A52A2A</color>
+    <!-- Add more colors as needed -->
+
+    <color name="ledyellow">#EDB224</color>
+    <color name="ledyellow2">#FFD700</color>
+    <color name="default500">#E5DFE8</color>
+    <color name="heater_red">#CF526D</color>
+    <color name="card_color">#191919</color>
+    <color name="card_color2">#76ABAE</color>
+    <color name="card_color3">#31363F</color>
+
+
+    <!-- Modern color palette #1 -->
+    <color name="almost_black">#121e26</color>
+    <color name="deep_forest_green">#283635</color>
+    <color name="light_beige">#f4efeb</color>
+    <color name="beige">#d2c0b2</color>
+    <color name="clay">#9d6556</color>
+
+    <!-- Modern color palette #2 -->
+    <color name="terra_cotta">#ae4e38</color>
+    <color name="coral">#db8065</color>
+    <color name="sand">#f0d9c7</color>
+    <color name="gold">#d79330</color>
+
+    <!-- Modern color palette #3 -->
+    <color name="midnight_blue">#101356</color>
+    <color name="off_white">#fbfdf6</color>
+    <color name="bright_blue">#66C8C8</color>
+    <color name="grey">#e8e8e8</color>
+
+
+
+</resources>
