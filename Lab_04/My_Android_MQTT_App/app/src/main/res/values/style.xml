@@ -7,7 +7,7 @@
 
     <style name="ThemeOverlay.App.Switch" parent="">
         <item  name="colorPrimary"> @color/ledyellow2 </item>
-        <item  name="colorPrimaryDark">@color/design_default_color_primary_dark</item>
+        <item  name="colorPrimaryDark">@color/off_white</item>
         <item  name="colorSurfaceVariant">@color/black</item>
     </style>
 
@@ -20,7 +20,7 @@
 
     <style name="ThemeOverlay.App.Switch.Heater" parent="">
         <item  name="colorPrimary"> @color/heater_red </item>
-        <item  name="colorPrimaryDark">@color/design_default_color_primary_dark</item>
+        <item  name="colorPrimaryDark">@color/off_white</item>
         <item  name="colorSurfaceVariant">@color/black</item>
     </style>
 

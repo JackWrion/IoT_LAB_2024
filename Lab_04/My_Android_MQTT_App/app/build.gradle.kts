@@ -8,8 +8,9 @@ android {
 
     defaultConfig {
         applicationId = "com.example.my_android_mqtt_app"
-        minSdk = 29
-        targetSdk = 34
+        minSdk = 23
+        //noinspection ExpiredTargetSdkVersion
+        targetSdk = 23
         versionCode = 1
         versionName = "1.0"
 
@@ -38,7 +39,10 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.gridlayout)
+    implementation(libs.cardview.v7)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    implementation (libs.org.eclipse.paho.client.mqttv3)
+    implementation (libs.org.eclipse.paho.android.service)
 }

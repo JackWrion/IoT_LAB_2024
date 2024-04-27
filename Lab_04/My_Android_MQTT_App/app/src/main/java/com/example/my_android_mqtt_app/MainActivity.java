@@ -1,8 +1,12 @@
 package com.example.my_android_mqtt_app;
 
+
+import android.os.Handler;
+import android.os.Looper;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +22,15 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.materialswitch.MaterialSwitch;
+import com.google.android.material.progressindicator.BaseProgressIndicator;
+import com.google.android.material.progressindicator.CircularProgressIndicator;
+import com.google.android.material.progressindicator.LinearProgressIndicator;
+import com.google.android.material.progressindicator.LinearProgressIndicatorSpec;
 import com.google.android.material.switchmaterial.SwitchMaterial;
+
+import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
+import org.eclipse.paho.client.mqttv3.MqttCallbackExtended;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,18 +55,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        CircularProgressIndicator myProgress = findViewById(R.id.Progress_view);
+        myProgress.setVisibility(View.INVISIBLE);
         btnHello.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public synchronized void onClick(View v) {
+                // Create a Handler to delay the start of MonitorActivity
                 Intent intent = new Intent(MainActivity.this, MonitorActivity.class);
+
+                myProgress.setVisibility(View.VISIBLE);
+
+                MQTTHelper myMQTT = MQTTHelper.GetMQTTClient(MainActivity.this);
+
                 startActivity(intent);
             }
         });
 
 
+
     }
-
-
 
 
 
