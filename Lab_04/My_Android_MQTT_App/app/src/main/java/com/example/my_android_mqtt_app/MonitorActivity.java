@@ -133,7 +133,7 @@ public class MonitorActivity extends AppCompatActivity {
             }
         });
 
-        
+
 
 
         ImageView tempImg = findViewById(R.id.imageTemper);
